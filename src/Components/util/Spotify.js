@@ -1,6 +1,6 @@
 let accessToken
 const cliendID = '34a458ab7d504cf5949a47df7c242085'
-const redirecURI = 'http://localhost:3000/'
+const redirecURI = 'https://quyvuacn.github.io/spotify/'
 const Spotify = {
     getAccessToken(){
         if(accessToken){
