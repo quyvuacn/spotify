@@ -29,6 +29,10 @@ export class App extends React.Component{
         this.changeSrcPresent = this.changeSrcPresent.bind(this)
     }
 
+    componentDidMount() {
+        Spotify.getAccessToken()
+    }
+
     addTrack(track){
         let tracks = this.state.playList
         if(!this.state.playList.find(e=>e.id===track.id)){

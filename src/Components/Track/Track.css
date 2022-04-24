@@ -2,7 +2,7 @@
 .Track-play{
     margin: 0;
     padding: 0;
-    height: 24px;
+    height: 20px;
     cursor: pointer;
 }
 .Track-play:hover{

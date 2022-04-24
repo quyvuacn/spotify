@@ -15,10 +15,9 @@ const Spotify = {
             const expiresIn = Number(expiresInMatch[1])
             //This clears the parameters, allowing us to grab token when it expires.
             window.setTimeout(()=> accessToken='',expiresIn*1000)
-            window.history.pushState('Access Token',null,'/')
+            window.history.pushState('Access Token',null,'/spotify')
             return accessToken
         }else {
-
             const  accessUrl = `https://accounts.spotify.com/authorize?client_id=${cliendID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirecURI}`
             window.location = accessUrl
         }
