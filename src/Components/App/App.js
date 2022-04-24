@@ -4,6 +4,7 @@ import React from "react";
 import {SearchBar} from "../SearchBar/SearchBar";
 import {SearchResults} from "../SearchResults/SearchResults";
 import {Playlist} from "../Playlist/Playlist";
+import {PlayMusic} from "../PlayMusic/PlayMusic";
 import Spotify from "../util/Spotify";
 
 import './App.css'
@@ -16,7 +17,8 @@ export class App extends React.Component{
                 [],
             playList:
                 [],
-            playlistName: "New Playlist"
+            playlistName: "New Playlist",
+            srcPresent:"17iGUekw5nFt5mIRJcUm3R"
         }
 
         this.addTrack = this.addTrack.bind(this)
@@ -24,6 +26,7 @@ export class App extends React.Component{
         this.changeName = this.changeName.bind(this)
         this.savePlayList = this.savePlayList.bind(this)
         this.search = this.search.bind(this)
+        this.changeSrcPresent = this.changeSrcPresent.bind(this)
     }
 
     addTrack(track){
@@ -72,6 +75,11 @@ export class App extends React.Component{
       )
     }
 
+    changeSrcPresent(keyTrack){
+        this.setState({
+            srcPresent: keyTrack
+        })
+    }
 
     render() {
         return(
@@ -79,8 +87,9 @@ export class App extends React.Component{
                     <h1>Ja<span className="highlight">mmm</span>ing</h1>
                     <div className="App">
                         <SearchBar onSearch={this.search}/>
+                        <PlayMusic src={this.state.srcPresent}/>
                         <div className="App-playlist">
-                            <SearchResults searchResults={this.state.searchResults} addTrack={this.addTrack} />
+                            <SearchResults searchResults={this.state.searchResults} addTrack={this.addTrack} onchangeSrc={this.changeSrcPresent}/>
                             <Playlist
                                 searchResults={this.state.playList}
                                 removeTrack={this.removeTrack}
