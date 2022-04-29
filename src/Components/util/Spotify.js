@@ -21,6 +21,7 @@ const Spotify = {
             return accessToken
         }else {
             const  accessUrl = `https://accounts.spotify.com/authorize?client_id=${cliendID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirecURI}`
+
             window.location = accessUrl
         }
     },
